@@ -1,6 +1,3 @@
-// Shared navigation and footer for Leaders Tribe site
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/6929f26963c69f9a4e432a1a/f5084e50b_LeadersTribeTransparentLogo2.png";
-
 function injectNav(activePage) {
   const pages = [
     { href: 'index.html', label: 'Home' },
@@ -19,7 +16,7 @@ function injectNav(activePage) {
     <nav>
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <img src="${LOGO_URL}" alt="Leaders Tribe" onerror="this.style.display='none'">
+          <img src="logo.png" alt="Leaders Tribe Logo" />
           <span>Leaders Tribe</span>
         </a>
         <ul class="nav-links" id="nav-menu">
@@ -65,11 +62,11 @@ function injectFooter() {
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Programs</h4>
+            <h4>Contact</h4>
             <ul>
+              <li><a href="mailto:leaderstribe22@gmail.com">leaderstribe22@gmail.com</a></li>
               <li><a href="programs.html#excel">Excel Program</a></li>
               <li><a href="programs.html#leadership">Leadership Program</a></li>
-              <li><a href="get-involved.html">Volunteer</a></li>
               <li><a href="get-involved.html#partner">Partner With Us</a></li>
             </ul>
           </div>
