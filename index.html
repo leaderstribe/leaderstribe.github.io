@@ -3,157 +3,693 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaders Tribe — Empowering Women Globally</title>
-  <meta name="description" content="Leaders Tribe is dedicated to empowering women globally with essential tech and leadership skills." />
+  <title>Leaders Tribe — Women Leading Through Technology, Data & Purpose</title>
+  <meta name="description" content="Leaders Tribe equips women with practical technology, data analysis, and leadership skills to thrive in the digital economy and lead community impact." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Leaders Tribe — Women Leading Through Technology, Data & Purpose" />
+  <meta property="og:description" content="Leaders Tribe equips women with practical technology, data analysis, and leadership skills to thrive in the digital economy and lead community impact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://leaderstribe.github.io/" />
+
+  <!-- Favicon: replace assets/favicon.png with your own icon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div id="nav-placeholder"></div>
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Leaders Tribe — Home">
+        <!-- Replace assets/logo.png with the official Leaders Tribe logo -->
+        <img src="assets/logo.png" alt="Leaders Tribe logo: a colorful gradient feather above the words Leaders Tribe" />
+        <span class="nav-logo-text">Leaders Tribe</span>
+      </a>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <div class="hero-tag">Empowering Women Globally</div>
-      <h1>Where Women Become <em>Leaders</em></h1>
-      <p>Leaders Tribe equips women worldwide with the tech skills and leadership confidence to break barriers, build careers, and reshape the future.</p>
-      <div class="hero-buttons">
-        <a href="get-involved.html" class="btn-primary">Join the Tribe</a>
-        <a href="programs.html" class="btn-ghost">Explore Programs</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#who">Join Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn btn-primary btn-sm">Apply Now</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#who">Join Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary">Apply Now</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">Women · Technology · Leadership</span>
+        <h1 class="hero-title">Equipping women to <em>lead, analyze, and thrive</em> in a digital world.</h1>
+        <p class="hero-sub">Leaders Tribe helps women build practical technology, data, and leadership skills through hands-on training, mentorship, and community support.</p>
+        <div class="hero-ctas">
+          <a href="#programs" class="btn btn-primary">Apply for a Program</a>
+          <a href="#partners" class="btn btn-outline">Partner With Us</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-orb">
+          <!-- Replace assets/logo.png if a transparent hero illustration is preferred -->
+          <img src="assets/logo.png" alt="Leaders Tribe emblem: a gradient feather symbolizing growth, voice, and leadership" />
+        </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-logo-wrap">
-        <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/render/image/public/base44-prod/public/6929f26963c69f9a4e432a1a/f5084e50b_LeadersTribeTransparentLogo2.png" alt="Leaders Tribe" />
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       STATS BAR (quick snapshot of targets)
+       ============================================================ -->
+  <div id="stats-bar">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num">40</div>
+        <div class="stat-label">Women trained directly each year</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-num">400</div>
+        <div class="stat-label">Additional learners reached via Train-the-Trainer</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Flagship programs every cohort</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Virtual &amp; globally accessible</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div>
-      <div class="stat-num">5,000+</div>
-      <div class="stat-label">Women Empowered</div>
-    </div>
-    <div>
-      <div class="stat-num">40+</div>
-      <div class="stat-label">Countries Reached</div>
-    </div>
-    <div>
-      <div class="stat-num">2</div>
-      <div class="stat-label">Flagship Programs</div>
-    </div>
-    <div>
-      <div class="stat-num">90%</div>
-      <div class="stat-label">Career Advancement Rate</div>
-    </div>
-  </div>
-</div>
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="section-inner about-grid">
+      <div class="about-visual reveal" aria-hidden="true">
+        <p class="about-quote">"Confidence is built one skill at a time — and shared one woman at a time."</p>
+      </div>
 
-<!-- MISSION -->
-<section style="background: var(--ivory);">
-  <div class="section-inner">
-    <div class="two-col">
-      <div>
-        <div class="section-tag">Our Mission</div>
-        <h2 class="section-title">Closing the Gender Gap in Tech & Leadership</h2>
-        <p class="section-sub">Women remain significantly underrepresented in technology and leadership roles. Leaders Tribe exists to change that—through practical skills, mentorship, and a global community of women lifting each other up.</p>
-        <ul class="check-list">
-          <li>Free and accessible programs for women around the world</li>
-          <li>Hands-on tech training aligned with real industry needs</li>
-          <li>Leadership development grounded in lived experience</li>
-          <li>A thriving global network of mentors and peers</li>
-        </ul>
-        <br/>
-        <a href="about.html" class="btn-primary">Learn Our Story</a>
-      </div>
-      <div class="col-visual">
-        <div class="col-visual-text">"Every woman deserves the tools to lead."</div>
+      <div class="about-text reveal">
+        <span class="tag">About Leaders Tribe</span>
+        <h2 id="about-title" class="section-title">Helping women build the skills to lead change</h2>
+        <p>Leaders Tribe is committed to helping women build technological and leadership skills that empower them to lead change in their communities, careers, and industries.</p>
+        <p>We create inclusive and practical learning spaces where women gain confidence using digital tools, grow as leaders, and apply their skills to solve real-world problems — at work, in their businesses, and in the communities they care about.</p>
+
+        <div class="value-cards">
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon" data-icon="laptop" style="width:42px;height:42px;"></div>
+            <h4>Practical Learning</h4>
+            <p>Skills you can use immediately — in a job, a business, or a community project.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <div class="value-icon" data-icon="podium" style="width:42px;height:42px;"></div>
+            <h4>Leadership Confidence</h4>
+            <p>Programs that build self-belief alongside technical skill.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-3">
+            <div class="value-icon" data-icon="community" style="width:42px;height:42px;"></div>
+            <h4>Community Impact</h4>
+            <p>Every woman we train becomes a source of skills for others around her.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROGRAMS PREVIEW -->
-<section style="background: var(--white);">
-  <div class="section-inner">
-    <div class="section-tag">Our Programs</div>
-    <h2 class="section-title">Skills That Open Doors</h2>
-    <p class="section-sub">Two programs, one purpose: giving women the practical skills and confidence to thrive in today's world.</p>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">📊</div>
-        <h3>Excel Program</h3>
-        <p>Master Microsoft Excel from the ground up. From formulas and pivot tables to data analysis and dashboards — skills that employers actively seek.</p>
-        <br/><a href="programs.html#excel" style="color: var(--accent-teal); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Learn more →</a>
+  <!-- ============================================================
+       MISSION & VISION
+       ============================================================ -->
+  <section id="mission" class="dark-section" aria-labelledby="mission-title">
+    <div class="section-inner" style="margin-bottom: 2.5rem;">
+      <span class="tag">Why We Exist</span>
+      <h2 id="mission-title" class="section-title">Our Mission &amp; Vision</h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card mission-card reveal">
+        <div class="mv-label">
+          <span data-icon="compass" style="display:flex;width:20px;height:20px;"></span>
+          Mission
+        </div>
+        <p>"To equip women with the technological competence and leadership capacity to participate fully, confidently, and effectively in the digital economy."</p>
       </div>
-      <div class="card">
-        <div class="card-icon">🌟</div>
-        <h3>Leadership Program</h3>
-        <p>Develop the mindset, communication, and strategic thinking skills that define great leaders. Designed for women at all stages of their journey.</p>
-        <br/><a href="programs.html#leadership" style="color: var(--accent-teal); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Learn more →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">🤝</div>
-        <h3>Community & Mentorship</h3>
-        <p>Connect with a global tribe of women leaders. Peer learning, mentorship circles, and a network that grows with you throughout your career.</p>
-        <br/><a href="get-involved.html" style="color: var(--accent-teal); font-weight: 600; text-decoration: none; font-size: 0.9rem;">Get involved →</a>
+      <div class="mv-card vision-card reveal reveal-delay-1">
+        <div class="mv-label">
+          <span data-icon="eye" style="display:flex;width:20px;height:20px;"></span>
+          Vision
+        </div>
+        <p>"A generation of women who lead with purpose and innovate with technology, driving inclusive growth and sustainable development."</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HOW IT WORKS PREVIEW -->
-<section style="background: var(--ivory);">
-  <div class="section-inner">
-    <div class="section-tag">Simple to Start</div>
-    <h2 class="section-title">Your Journey Begins Here</h2>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Apply</h3>
-        <p>Fill out a simple application. No prior experience or qualifications required.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Choose a Program</h3>
-        <p>Select the Excel or Leadership track — or join both at your own pace.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Learn & Grow</h3>
-        <p>Work through guided modules with mentors and a supportive community alongside you.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">4</div>
-        <h3>Lead</h3>
-        <p>Graduate with verified skills, a certificate, and a network that opens doors.</p>
+  <!-- ============================================================
+       FOCUS AREAS
+       ============================================================ -->
+  <section id="focus" aria-labelledby="focus-title">
+    <div class="section-inner">
+      <span class="tag">What We Focus On</span>
+      <h2 id="focus-title" class="section-title">Three Areas, One Goal</h2>
+      <p class="section-sub">Everything we do is designed to help women gain real skills, real confidence, and a real community to grow with.</p>
+
+      <div class="focus-grid">
+        <div class="focus-card reveal">
+          <div class="focus-icon" data-icon="laptop"></div>
+          <h3>Technological Skills Development</h3>
+          <p>We train women in high-demand digital and data skills, from digital literacy to creative and analytical tools, to enhance employability, entrepreneurship, and community impact.</p>
+        </div>
+        <div class="focus-card reveal reveal-delay-1">
+          <div class="focus-icon" data-icon="podium"></div>
+          <h3>Leadership Development</h3>
+          <p>Our leadership programs focus on self-awareness, communication, influence, and ethical leadership, helping women lead with confidence and clarity.</p>
+        </div>
+        <div class="focus-card reveal reveal-delay-2">
+          <div class="focus-icon" data-icon="network"></div>
+          <h3>Mentorship &amp; Community Building</h3>
+          <p>Through mentorship circles and peer learning networks, we foster collaboration, accountability, and shared growth among women learning to lead in technology and beyond.</p>
+        </div>
       </div>
     </div>
-    <div style="text-align:center; margin-top: 3rem;">
-      <a href="how-it-works.html" class="btn-primary">See How It Works</a>
+  </section>
+
+  <!-- ============================================================
+       FLAGSHIP PROGRAMS
+       ============================================================ -->
+  <section id="programs" aria-labelledby="programs-title">
+    <div class="section-inner">
+      <span class="tag">Flagship Programs</span>
+      <h2 id="programs-title" class="section-title">Two Programs Built for Real Growth</h2>
+      <p class="section-sub">Each program combines practical skills with leadership development — so women leave not just knowing more, but able to do more.</p>
+
+      <div class="programs-grid">
+
+        <!-- Program 1: Excel for Data Analysis -->
+        <div class="program-card reveal">
+          <div class="program-header">
+            <div class="program-header-content">
+              <span class="program-badge">Program One</span>
+              <h3>Excel for Data Analysis for Women</h3>
+              <p>Build confidence with data — from the basics to dashboards.</p>
+            </div>
+          </div>
+          <div class="program-body">
+            <p>A hands-on training program that empowers women to analyze, interpret, and visualize data confidently for decision-making, business, academic work, project management, and community impact.</p>
+
+            <div class="program-levels">
+              <div class="level-block">
+                <h4>Beginner Level</h4>
+                <p>Excel basics, data entry, formulas, formatting, charts, and everyday data storytelling.</p>
+              </div>
+              <div class="level-block">
+                <h4>Intermediate Level</h4>
+                <p>Data cleaning, validation, lookup functions, conditional formulas, PivotTables, PivotCharts, dashboards, and insight reporting.</p>
+              </div>
+            </div>
+
+            <div class="program-meta">
+              <div class="meta-item"><span data-icon="video" style="display:flex;width:16px;height:16px;"></span> Live virtual classes</div>
+              <div class="meta-item"><span data-icon="clock" style="display:flex;width:16px;height:16px;"></span> 8 weeks per cohort</div>
+              <div class="meta-item"><span data-icon="users" style="display:flex;width:16px;height:16px;"></span> Cohort size: 20 women</div>
+              <div class="meta-item"><span data-icon="calendar" style="display:flex;width:16px;height:16px;"></span> 2 cohorts / year (40 women)</div>
+            </div>
+
+            <h4 style="font-size:0.88rem; font-weight:600; color: var(--violet); margin-bottom:0.6rem;">Capstone Projects</h4>
+            <ul class="capstone-list">
+              <li>Everyday Data Story — turning personal or work data into a clear narrative</li>
+              <li>Community Data in Action — applying data skills to a real community issue</li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary">Join the Excel Program</a>
+          </div>
+        </div>
+
+        <!-- Program 2: Leadership Development Program -->
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-header">
+            <div class="program-header-content">
+              <span class="program-badge">Program Two</span>
+              <h3>Leadership Development Program</h3>
+              <p>Find your voice. Lead with clarity and confidence.</p>
+            </div>
+          </div>
+          <div class="program-body">
+            <p>A practical leadership journey that strengthens women's voices, helps them communicate clearly, manage teams, build influence, and lead with empathy, strategy, and impact.</p>
+
+            <div class="program-levels">
+              <div class="level-block">
+                <h4>Core Themes</h4>
+                <p>Self-awareness and personal leadership style, clear and confident communication, decision-making, and ethical influence.</p>
+              </div>
+              <div class="level-block">
+                <h4>Applied Practice</h4>
+                <p>Leading teams and projects, navigating difficult conversations, and building strategies for long-term impact in your career or community.</p>
+              </div>
+            </div>
+
+            <div class="program-meta">
+              <div class="meta-item"><span data-icon="video" style="display:flex;width:16px;height:16px;"></span> Live virtual sessions</div>
+              <div class="meta-item"><span data-icon="users" style="display:flex;width:16px;height:16px;"></span> Cohort-based learning</div>
+              <div class="meta-item"><span data-icon="chat" style="display:flex;width:16px;height:16px;"></span> Peer &amp; mentor support</div>
+              <div class="meta-item"><span data-icon="award" style="display:flex;width:16px;height:16px;"></span> Practical leadership projects</div>
+            </div>
+
+            <h4 style="font-size:0.88rem; font-weight:600; color: var(--violet); margin-bottom:0.6rem;">What You'll Walk Away With</h4>
+            <ul class="capstone-list">
+              <li>A clearer sense of your leadership style and strengths</li>
+              <li>Practical tools for communication, influence, and decision-making</li>
+              <li>A plan to apply your leadership growth in your career or community</li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary">Explore Leadership Training</a>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<div class="cta-band">
-  <div class="section-inner" style="text-align:center;">
-    <h2>Ready to Join the Tribe?</h2>
-    <p>Thousands of women have already taken the first step. Your seat is waiting.</p>
-    <a href="get-involved.html" class="btn-primary">Get Started — It's Free</a>
-  </div>
-</div>
+  <!-- ============================================================
+       TRAIN-THE-TRAINER MODEL
+       ============================================================ -->
+  <section id="ttt" class="dark-section" aria-labelledby="ttt-title">
+    <div class="ttt-intro">
+      <span class="tag">Multiplier Model</span>
+      <h2 id="ttt-title" class="section-title">Train-the-Trainer: Growing the Tribe</h2>
+      <p class="section-sub">After completing Level 1 of the Excel program, participants are expected to redeliver beginner-level training to at least 10 new learners in their local community or professional network, with at least 50% of those learners being women. This helps Leaders Tribe create a ripple effect of digital empowerment.</p>
+    </div>
 
-<div id="footer-placeholder"></div>
+    <div class="ttt-steps">
+      <div class="ttt-step reveal">
+        <div class="ttt-num" data-icon="bookopen" style="width:72px; height:72px;"></div>
+        <h3>1. Learn</h3>
+        <p>Complete Level 1 of the Excel for Data Analysis program and build a strong foundation in practical data skills.</p>
+      </div>
+      <div class="ttt-step reveal reveal-delay-1">
+        <div class="ttt-num" data-icon="teach" style="width:72px; height:72px;"></div>
+        <h3>2. Teach Others</h3>
+        <p>Redeliver beginner-level training to at least 10 new learners — at least half of them women — in your community or network.</p>
+      </div>
+      <div class="ttt-step reveal reveal-delay-2">
+        <div class="ttt-num" data-icon="grow" style="width:72px; height:72px;"></div>
+        <h3>3. Grow the Tribe</h3>
+        <p>Each new learner extends the reach of Leaders Tribe, multiplying skills and confidence across communities.</p>
+      </div>
+    </div>
 
-<script src="shared.js"></script>
-<script>
-  injectNav('Home');
-  injectFooter();
-</script>
+    <div class="ttt-impact reveal">
+      <div class="ttt-impact-icon" data-icon="trendingup" style="width:60px; height:60px;"></div>
+      <div class="ttt-impact-text">
+        <h4>The Ripple Effect</h4>
+        <p><strong>1 trained woman</strong> can support <strong>10 new learners</strong>. With <strong>40 women</strong> trained per year, Leaders Tribe can reach <strong>400 additional learners</strong> through the Train-the-Trainer model.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       IMPACT / EXPECTED OUTCOMES
+       ============================================================ -->
+  <section id="impact" aria-labelledby="impact-title">
+    <div class="section-inner">
+      <span class="tag">Impact &amp; Targets</span>
+      <h2 id="impact-title" class="section-title">What We're Working Toward</h2>
+      <p class="section-sub">These are the targets that guide our work each year — practical, measurable, and grounded in real outcomes.</p>
+
+      <div class="impact-stats">
+        <div class="impact-stat reveal">
+          <div class="impact-stat-num">40</div>
+          <div class="impact-stat-label">women trained directly each year</div>
+        </div>
+        <div class="impact-stat reveal reveal-delay-1">
+          <div class="impact-stat-num">400</div>
+          <div class="impact-stat-label">new learners reached through Train-the-Trainer</div>
+        </div>
+        <div class="impact-stat reveal reveal-delay-2">
+          <div class="impact-stat-num">90%</div>
+          <div class="impact-stat-label">target for improved Excel confidence</div>
+        </div>
+        <div class="impact-stat reveal reveal-delay-3">
+          <div class="impact-stat-num">70%</div>
+          <div class="impact-stat-label">target applying Excel in work, school, or projects</div>
+        </div>
+        <div class="impact-stat reveal reveal-delay-4">
+          <div class="impact-stat-num">4</div>
+          <div class="impact-stat-label">alumni learning circles targeted annually</div>
+        </div>
+      </div>
+
+      <div class="impact-note reveal">
+        <p>Our work is not only about learning tools. It is about helping women use technology and leadership to make better decisions, improve their work, support their communities, and create opportunities for others.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LEARNING APPROACH — "How We Teach"
+       ============================================================ -->
+  <section id="approach" aria-labelledby="approach-title">
+    <div class="section-inner">
+      <span class="tag">Our Teaching Style</span>
+      <h2 id="approach-title" class="section-title">How We Teach</h2>
+      <p class="section-sub">Learning should feel doable, supportive, and connected to real life. Here's how we try to make that true.</p>
+
+      <div class="approach-grid">
+        <div class="approach-card reveal">
+          <div class="approach-icon" data-icon="hand"></div>
+          <h3>Practice Over Theory</h3>
+          <p>You'll spend most of your time doing — working with real spreadsheets, real scenarios, and real exercises, not just watching slides.</p>
+        </div>
+        <div class="approach-card reveal reveal-delay-1">
+          <div class="approach-icon" data-icon="chat"></div>
+          <h3>Collaborative Learning</h3>
+          <p>You learn alongside other women, sharing questions, wins, and ideas. No one moves through this alone.</p>
+        </div>
+        <div class="approach-card reveal reveal-delay-2">
+          <div class="approach-icon" data-icon="layers"></div>
+          <h3>Contextualized Content</h3>
+          <p>Examples and exercises are drawn from everyday situations — work, business, school, and community life — so the skills feel relevant immediately.</p>
+        </div>
+        <div class="approach-card reveal reveal-delay-3">
+          <div class="approach-icon" data-icon="award"></div>
+          <h3>Results-Oriented Growth</h3>
+          <p>Every module moves toward something you can show — a project, a dashboard, a plan — so your progress is visible and real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHO CAN JOIN
+       ============================================================ -->
+  <section id="who" class="dark-section" aria-labelledby="who-title">
+    <div class="who-inner">
+      <div class="who-text reveal">
+        <span class="tag">Is This for You?</span>
+        <h2 id="who-title" class="section-title">Who Can Join</h2>
+        <p class="section-sub">Leaders Tribe programs are designed for:</p>
+
+        <div class="who-list">
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Women aged 18 and above</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Students and graduates</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Early-career professionals</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Entrepreneurs</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> NGO and nonprofit staff</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Community advocates</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Anyone with a laptop and internet access</div>
+          <div class="who-item"><span data-icon="check" style="display:flex;"></span> Beginners who want practical, supportive learning</div>
+        </div>
+      </div>
+
+      <div class="who-cta reveal reveal-delay-1">
+        <h3>Ready to Start?</h3>
+        <p>No prior experience is required — just a willingness to learn, practice, and grow alongside other women. Register your interest and our team will be in touch about upcoming cohorts.</p>
+        <a href="#contact" class="btn btn-primary">Register Your Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS (placeholders — replace when stories are available)
+       ============================================================ -->
+  <section id="testimonials" aria-labelledby="testimonials-title">
+    <div class="section-inner">
+      <span class="tag">Voices From the Tribe</span>
+      <h2 id="testimonials-title" class="section-title">Participant Stories</h2>
+      <p class="section-sub">We're just getting started — real stories from participants will appear here as cohorts complete their programs.</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="quote-mark" data-icon="quote" style="width:36px; height:36px; line-height:1;"></div>
+          <p class="testimonial-placeholder">Participant story coming soon.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" data-icon="person"></div>
+            <div class="author-info">
+              <p>Future Participant</p>
+              <p>Excel Program — Cohort TBD</p>
+              <span class="placeholder-badge">Placeholder</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="quote-mark" data-icon="quote" style="width:36px; height:36px; line-height:1;"></div>
+          <p class="testimonial-placeholder">Participant story coming soon.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" data-icon="person"></div>
+            <div class="author-info">
+              <p>Future Participant</p>
+              <p>Leadership Program — Cohort TBD</p>
+              <span class="placeholder-badge">Placeholder</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="quote-mark" data-icon="quote" style="width:36px; height:36px; line-height:1;"></div>
+          <p class="testimonial-placeholder">Participant story coming soon.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" data-icon="person"></div>
+            <div class="author-info">
+              <p>Future Participant</p>
+              <p>Train-the-Trainer — Cohort TBD</p>
+              <span class="placeholder-badge">Placeholder</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PARTNER / VOLUNTEER
+       ============================================================ -->
+  <section id="partners" aria-labelledby="partners-title">
+    <div class="section-inner">
+      <div class="partners-grid">
+        <div class="reveal">
+          <span class="tag">Work With Us</span>
+          <h2 id="partners-title" class="section-title">Partner with Leaders Tribe</h2>
+          <p class="section-sub">We welcome partnerships with organizations, donors, technology firms, educational institutions, and women-focused networks that want to expand access to digital and leadership skills for women.</p>
+
+          <div class="partner-options">
+            <div class="partner-option">
+              <span data-icon="briefcase" style="display:flex;"></span>
+              <p>Sponsor a cohort</p>
+            </div>
+            <div class="partner-option">
+              <span data-icon="podium" style="display:flex;width:22px;height:22px;"></span>
+              <p>Provide mentorship</p>
+            </div>
+            <div class="partner-option">
+              <span data-icon="wifi" style="display:flex;"></span>
+              <p>Support internet or software access</p>
+            </div>
+            <div class="partner-option">
+              <span data-icon="mic" style="display:flex;"></span>
+              <p>Volunteer as a facilitator</p>
+            </div>
+            <div class="partner-option">
+              <span data-icon="share" style="display:flex;"></span>
+              <p>Share learning opportunities</p>
+            </div>
+            <div class="partner-option">
+              <span data-icon="collab" style="display:flex;"></span>
+              <p>Collaborate on women's leadership programs</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner-cta-box reveal reveal-delay-1">
+          <h3>Become a Partner</h3>
+          <p>Whether you represent a company, an institution, or simply want to volunteer your time and expertise, we'd love to hear from you. Together, we can reach more women with the skills and confidence to lead.</p>
+          <a href="#contact" class="btn btn-white">Become a Partner</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section id="contact" class="dark-section" aria-labelledby="contact-title">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <span class="tag">Get in Touch</span>
+        <h2 id="contact-title" class="section-title">Contact Leaders Tribe</h2>
+        <p class="section-sub">Have a question about a program, a partnership idea, or want to volunteer? Reach out — we'd love to hear from you.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon" data-icon="mail" style="width:40px;height:40px;"></div>
+            <div class="contact-detail-text">
+              <p>Email</p>
+              <a href="mailto:leaderstribe22@gmail.com">leaderstribe22@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" data-icon="phone" style="width:40px;height:40px;"></div>
+            <div class="contact-detail-text">
+              <p>Phone</p>
+              <a href="tel:+2347055832110">+234 705 583 2110</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" data-icon="pin" style="width:40px;height:40px;"></div>
+            <div class="contact-detail-text">
+              <p>Location</p>
+              <p>Lagos, Nigeria</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" data-icon="monitor" style="width:40px;height:40px;"></div>
+            <div class="contact-detail-text">
+              <p>Program Format</p>
+              <p>Fully virtual and globally accessible</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <!--
+          FORM SUBMISSION NOTE:
+          GitHub Pages does not support backend form processing.
+          This form currently uses a "mailto:" fallback via JavaScript (see script.js),
+          which opens the visitor's email client with a pre-filled message.
+
+          To collect submissions directly into an inbox or spreadsheet instead, replace
+          the form's behavior with one of the following:
+
+          1) Formspree:
+             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+             (remove the JS mailto handler, or keep as a fallback)
+
+          2) Netlify Forms (if hosting on Netlify):
+             <form name="contact" method="POST" data-netlify="true">
+
+          3) Google Forms:
+             Replace this form with an embedded Google Form iframe,
+             or point the action attribute to your Google Form's
+             "formResponse" endpoint with matching "entry.XXXXXXX" field names.
+        -->
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">I am interested in</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select an option</option>
+              <option value="Program Application">Program Application</option>
+              <option value="Partnership">Partnership</option>
+              <option value="Volunteering">Volunteering</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a little about yourself and how we can help..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Leaders Tribe</div>
+          <p>Women leading through technology, data, and purpose. Equipping women with the technological competence and leadership capacity to thrive in the digital economy.</p>
+
+          <!-- Social media placeholders — replace # with real profile links -->
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Leaders Tribe on LinkedIn" data-icon="linkedin"></a>
+            <a href="#" class="social-link" aria-label="Leaders Tribe on Instagram" data-icon="instagram"></a>
+            <a href="#" class="social-link" aria-label="Leaders Tribe on Facebook" data-icon="facebook"></a>
+            <a href="#" class="social-link" aria-label="Leaders Tribe on YouTube" data-icon="youtube"></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#who">Join Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#programs">Excel for Data Analysis</a></li>
+            <li><a href="#programs">Leadership Development</a></li>
+            <li><a href="#ttt">Train-the-Trainer</a></li>
+            <li><a href="#partners">Partner With Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:leaderstribe22@gmail.com">leaderstribe22@gmail.com</a></li>
+            <li><a href="tel:+2347055832110">+234 705 583 2110</a></li>
+            <li><a href="#contact">Lagos, Nigeria</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Leaders Tribe. All rights reserved.</p>
+        <p>Designed with care for women leading the way.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="icons.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
