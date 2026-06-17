@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nene Ibezim — Founder & Executive Director | Leaders Tribe</title>
+  <meta name="description" content="Learn about Nene Ibezim, Founder and Executive Director of Leaders Tribe — data analyst, education development professional, and program strategist." />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* ── Bio page specific styles ── */
+    .bio-hero {
+      background: var(--grad-dark);
+      padding: 120px 6% 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .bio-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 60%, rgba(196,22,106,0.16) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .bio-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 4rem;
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+    .bio-photo-wrap {
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      height: 380px;
+      flex-shrink: 0;
+    }
+    .bio-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .bio-intro {
+      padding-bottom: 3rem;
+    }
+    .bio-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .bio-back:hover { color: var(--gold); }
+    .bio-back svg { width: 16px; height: 16px; }
+    .bio-role-badge {
+      display: inline-block;
+      background: var(--grad-brand);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+    .bio-intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .bio-intro .tagline {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .bio-body {
+      padding: 56px 6% 80px;
+      background: var(--cream);
+    }
+    .bio-body-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .bio-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin: 2rem 0 0.75rem;
+    }
+    .bio-text h2:first-child { margin-top: 0; }
+    .bio-text p {
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.88;
+      margin-bottom: 1rem;
+    }
+    .bio-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .bio-sidebar-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.8rem;
+      border: 1px solid rgba(107,45,139,0.12);
+    }
+    .bio-sidebar-card h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .bio-sidebar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(107,45,139,0.08);
+    }
+    .bio-sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .bio-sidebar-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .bio-sidebar-value {
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .bio-hero-inner  { grid-template-columns: 1fr; gap: 2rem; align-items: flex-start; }
+      .bio-photo-wrap  { height: 300px; border-radius: 12px; }
+      .bio-body-inner  { grid-template-columns: 1fr; }
+      .bio-sidebar     { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- BIO HERO -->
+<div class="bio-hero">
+  <div class="bio-hero-inner">
+    <div class="bio-photo-wrap">
+      <img
+        src="../assets/nene-ibezim.jpg"
+        alt="Nene Ibezim, Founder and Executive Director of Leaders Tribe, smiling in a striped top"
+      />
+    </div>
+    <div class="bio-intro">
+      <a href="../about.html#team" class="bio-back">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Team
+      </a>
+      <div class="bio-role-badge">Founder &amp; Executive Director</div>
+      <h1>Nene Ibezim</h1>
+      <p class="tagline">Data analyst, education development professional, and program strategist building a learning community where women lead with confidence and purpose.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BIO BODY -->
+<div class="bio-body">
+  <div class="bio-body-inner">
+    <div class="bio-text reveal">
+      <h2>About Nene</h2>
+      <p>Nene Ibezim is the Founder and Executive Director of Leaders Tribe. She is a data analyst, education development professional, and program strategist with over seven years of experience across nonprofit, higher education, and global development spaces.</p>
+      <p>Her work sits at the intersection of data, research, leadership development, and social impact. Through Leaders Tribe, Nene is building a practical learning community where women gain the confidence, tools, and support they need to grow professionally and lead with impact.</p>
+
+      <h2>Background &amp; Education</h2>
+      <p>She holds an M.S.Ed. in International Education Development from the University of Pennsylvania — one of the world's leading graduate programs in international education policy and practice.</p>
+      <p>Nene has worked across Nigeria, India, Malawi, and the United States, bringing a genuinely global perspective to the design of Leaders Tribe's programs. Her cross-cultural experience informs how the organisation creates learning spaces that are inclusive, practical, and responsive to what women in different contexts actually need.</p>
+
+      <h2>Why Leaders Tribe</h2>
+      <p>Nene founded Leaders Tribe from a clear-eyed observation: the barriers keeping women out of technology and leadership are not talent gaps — they are access gaps. Access to structured training, to mentors who believe in you, to tools that are explained clearly, and to a community that holds you accountable.</p>
+      <p>She is passionate about using education, data, and community to expand opportunity for women and young people — and believes that when one woman grows, the ripple effect reaches far beyond her.</p>
+    </div>
+
+    <aside class="bio-sidebar reveal reveal-delay-1">
+      <div class="bio-sidebar-card">
+        <h4>Quick Facts</h4>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Role</span>
+          <span class="bio-sidebar-value">Founder &amp; Executive Director</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Education</span>
+          <span class="bio-sidebar-value">M.S.Ed., International Education Development — University of Pennsylvania</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Experience</span>
+          <span class="bio-sidebar-value">7+ years across nonprofit, higher education &amp; global development</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Countries Worked</span>
+          <span class="bio-sidebar-value">Nigeria, India, Malawi, United States</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Focus Areas</span>
+          <span class="bio-sidebar-value">Data analysis, leadership development, program strategy, social impact</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <a href="../contact.html" class="btn btn-primary" style="width:100%; justify-content:center;">Get in Touch</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../icons.js"></script>
+<script src="../shared-nav-footer.js"></script>
+<script src="../script.js"></script>
+<script>
+  // Adjust asset paths for subdirectory
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.nav-logo img, .social-link').forEach(el => {});
+  });
+  initPage('About');
+  // Fix logo path for subdirectory
+  document.querySelector('.nav-logo img').src = '../assets/logo.png';
+  document.querySelectorAll('.social-link[data-icon]').forEach(el => {});
+</script>
+</body>
+</html>
