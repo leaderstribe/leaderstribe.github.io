@@ -585,7 +585,7 @@ section { padding: var(--section-pad); }
 
 /* Founder card — slightly featured */
 .team-card.featured { border-color: rgba(196,22,106,0.25); }
-.team-card.featured .team-photo-wrap { height: 320px; }
+.team-card.featured .team-photo-wrap { height: 300px; }
 
 /* ============================================================
    TESTIMONIALS
