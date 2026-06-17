@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bolaji Akinlabi — Program Intern | Leaders Tribe</title>
+  <meta name="description" content="Learn about Bolaji Akinlabi, Program Intern at Leaders Tribe — community development professional and founder of The Guided Little Muslims." />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .bio-hero {
+      background: var(--grad-dark);
+      padding: 120px 6% 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .bio-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(244,123,32,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .bio-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 4rem;
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+    .bio-photo-wrap {
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      height: 380px;
+      flex-shrink: 0;
+    }
+    .bio-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .bio-intro { padding-bottom: 3rem; }
+    .bio-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .bio-back:hover { color: var(--gold); }
+    .bio-back svg { width: 16px; height: 16px; }
+    .bio-role-badge {
+      display: inline-block;
+      background: var(--grad-brand);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+    .bio-intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .bio-intro .tagline {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+    .bio-body {
+      padding: 56px 6% 80px;
+      background: var(--cream);
+    }
+    .bio-body-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .bio-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin: 2rem 0 0.75rem;
+    }
+    .bio-text h2:first-child { margin-top: 0; }
+    .bio-text p {
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.88;
+      margin-bottom: 1rem;
+    }
+    .bio-sidebar { position: sticky; top: 88px; }
+    .bio-sidebar-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.8rem;
+      border: 1px solid rgba(107,45,139,0.12);
+    }
+    .bio-sidebar-card h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .bio-sidebar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(107,45,139,0.08);
+    }
+    .bio-sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .bio-sidebar-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .bio-sidebar-value {
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .bio-hero-inner { grid-template-columns: 1fr; gap: 2rem; align-items: flex-start; }
+      .bio-photo-wrap { height: 300px; border-radius: 12px; }
+      .bio-body-inner { grid-template-columns: 1fr; }
+      .bio-sidebar    { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="bio-hero">
+  <div class="bio-hero-inner">
+    <div class="bio-photo-wrap">
+      <img
+        src="../assets/bolaji-akinlabi.jpg"
+        alt="Bolaji Akinlabi, Program Intern at Leaders Tribe"
+      />
+    </div>
+    <div class="bio-intro">
+      <a href="../about.html#team" class="bio-back">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Team
+      </a>
+      <div class="bio-role-badge">Program Intern</div>
+      <h1>Bolaji Akinlabi</h1>
+      <p class="tagline">Community development professional, parenting educator, and founder dedicated to building programs that strengthen families and create lasting social impact.</p>
+    </div>
+  </div>
+</div>
+
+<div class="bio-body">
+  <div class="bio-body-inner">
+    <div class="bio-text reveal">
+      <h2>About Bolaji</h2>
+      <p>Bolaji Akinlabi is a Program Intern at Leaders Tribe. She is a community development and social impact professional with experience in program coordination, research, content development, parenting education, and community engagement. Her work focuses on supporting initiatives that strengthen families, promote wellbeing, and create positive social outcomes.</p>
+      <p>Bolaji has a background in Adult Education, parenting and family systems, and community-centred programming — bringing a distinctive perspective to how Leaders Tribe designs and delivers its programs.</p>
+
+      <h2>Her Work at Leaders Tribe</h2>
+      <p>At Leaders Tribe, Bolaji supports the planning and implementation of programs that equip girls and young women with practical skills, confidence, and opportunities for growth. Her community development background helps the team think carefully about how to design learning experiences that meet women where they are — and support them in translating what they learn into real action in their lives and communities.</p>
+
+      <h2>Beyond Leaders Tribe</h2>
+      <p>Bolaji is also the Founder of The Guided Little Muslims, an initiative that supports Muslim mothers in raising confident, wholesome, and value-driven children. Through this work, she has developed deep expertise in parenting education, children's resource creation, and faith-based community building.</p>
+      <p>Her passion for education, family empowerment, and community development runs through everything she does — including her role at Leaders Tribe, where she is committed to building programs that create impact not just for participants, but for the families and communities around them.</p>
+    </div>
+
+    <aside class="bio-sidebar reveal reveal-delay-1">
+      <div class="bio-sidebar-card">
+        <h4>Quick Facts</h4>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Role</span>
+          <span class="bio-sidebar-value">Program Intern</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Background</span>
+          <span class="bio-sidebar-value">Adult Education, parenting &amp; family systems, community programming</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Also Founder</span>
+          <span class="bio-sidebar-value">The Guided Little Muslims</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Expertise</span>
+          <span class="bio-sidebar-value">Program coordination, parenting education, content development, community engagement</span>
+        </div>
+        <div class="bio-sidebar-item">
+          <span class="bio-sidebar-label">Focus Areas</span>
+          <span class="bio-sidebar-value">Education, family empowerment, community development, sustainable impact</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <a href="../contact.html" class="btn btn-primary" style="width:100%; justify-content:center;">Get in Touch</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../icons.js"></script>
+<script src="../shared-nav-footer.js"></script>
+<script src="../script.js"></script>
+<script>
+  initPage('About');
+  document.querySelector('.nav-logo img').src = '../assets/logo.png';
+</script>
+</body>
+</html>
