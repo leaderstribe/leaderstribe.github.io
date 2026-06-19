@@ -88,12 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------------
-     6. CONTACT FORM — mailto fallback
+     6. CONTACT FORM
+        Primary: Formspree AJAX submission (see contact.html for setup).
+        Fallback: mailto: link, used automatically if no Formspree
+        ID is configured yet, or if the Formspree request fails.
      ---------------------------------------------------------- */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const formspreeId = contactForm.getAttribute('data-formspree-id')?.trim();
+    const submitBtn = contactForm.querySelector('.btn-submit');
+
+    const sendViaMailto = (name, email, interest, message) => {
+      const subject = `Leaders Tribe Inquiry: ${interest}`;
+      const body =
+        `Name: ${name}\nEmail: ${email}\nInterested in: ${interest}\n\nMessage:\n${message}`;
+      window.location.href =
+        `mailto:leaderstribe22@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setTimeout(() => {
+        alert("Thank you! Your email client should be open with your message ready to send.\nIf it didn't open, email us at leaderstribe22@gmail.com.");
+      }, 300);
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const name     = document.getElementById('fullName')?.value.trim();
       const email    = document.getElementById('email')?.value.trim();
       const interest = document.getElementById('interest')?.value;
@@ -104,16 +122,34 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const subject = `Leaders Tribe Inquiry: ${interest}`;
-      const body    =
-        `Name: ${name}\nEmail: ${email}\nInterested in: ${interest}\n\nMessage:\n${message}`;
+      // No Formspree ID configured yet — use mailto fallback directly
+      if (!formspreeId) {
+        sendViaMailto(name, email, interest, message);
+        return;
+      }
 
-      window.location.href =
-        `mailto:leaderstribe22@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Attempt Formspree submission
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
-      setTimeout(() => {
-        alert("Thank you! Your email client should be open with your message ready to send.\nIf it didn't open, email us at leaderstribe22@gmail.com.");
-      }, 300);
+      try {
+        const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm),
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          alert('Thank you! Your message has been sent. We will be in touch soon.');
+        } else {
+          throw new Error('Formspree submission failed');
+        }
+      } catch (err) {
+        // Network error or Formspree issue — fall back to mailto
+        sendViaMailto(name, email, interest, message);
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
+      }
     });
   }
 
