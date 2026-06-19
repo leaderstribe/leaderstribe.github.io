@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Leaders Tribe</title>
   <meta name="description" content="Get in touch with Leaders Tribe — apply for a program, explore partnership, or ask us anything." />
+  <meta property="og:title" content="Contact — Leaders Tribe" />
+  <meta property="og:description" content="Get in touch with Leaders Tribe — apply for a program, explore partnership, or ask us anything." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://leaderstribe.github.io/assets/og-image.png" />
+  <meta property="og:url" content="https://leaderstribe.github.io/contact.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://leaderstribe.github.io/contact.html" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -68,28 +76,30 @@
     <!-- Contact form -->
     <div class="reveal reveal-delay-1">
       <!--
-        FORM SUBMISSION NOTE FOR DEVELOPERS:
-        ─────────────────────────────────────
-        GitHub Pages does not support server-side form processing.
-        This form currently uses a "mailto:" fallback via script.js —
-        it opens the visitor's email client with a pre-filled message.
+        FORM SUBMISSION SETUP — READ BEFORE LAUNCH
+        ─────────────────────────────────────────────
+        GitHub Pages cannot process forms server-side, so this form
+        submits via Formspree's AJAX endpoint (handled in script.js).
 
-        To collect submissions directly, replace the JS handler with one of:
+        TO ACTIVATE:
+        1. Create a free account at https://formspree.io
+        2. Create a new form and copy its endpoint ID
+           (looks like: https://formspree.io/f/abc1wxyz)
+        3. Replace YOUR_FORM_ID below with that ID.
+        4. Formspree will verify your email on first submission —
+           check leaderstribe22@gmail.com and confirm the form.
 
-        1) Formspree (free tier available):
-           <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-           Remove the JS submit handler in script.js (or keep as fallback).
+        Until step 3 is done, the data-formspree-id attribute is empty,
+        so script.js automatically falls back to the mailto: method
+        (opens the visitor's email client instead of submitting directly).
 
-        2) Netlify Forms (if you move hosting to Netlify):
-           <form name="contact" method="POST" data-netlify="true">
-
-        3) Google Forms:
-           Replace this form with an embedded <iframe> pointing to your
-           Google Form, or map fields to entry.XXXXXXX parameters.
+        ALTERNATIVES (if you'd rather not use Formspree):
+        - Netlify Forms: move hosting to Netlify, add data-netlify="true"
+        - Google Forms: replace this block with an embedded <iframe>
       -->
       <div class="contact-form">
         <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#fff; margin-bottom:1.5rem;">Send Us a Message</h3>
-        <form id="contactForm" novalidate>
+        <form id="contactForm" novalidate data-formspree-id="">
           <div class="form-row">
             <div class="form-group">
               <label for="fullName">Full Name</label>
