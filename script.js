@@ -88,7 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------------
-     6. CONTACT FORM
+     6. ANALYTICS HELPER
+        Wraps gtag() so calls are silent no-ops if GA hasn't
+        loaded yet (e.g. ad blockers, slow network).
+     ---------------------------------------------------------- */
+  const track = (eventName, params = {}) => {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    }
+  };
+
+  /* ----------------------------------------------------------
+     7. CONTACT FORM
         Primary: Formspree AJAX submission (see contact.html for setup).
         Fallback: mailto: link, used automatically if no Formspree
         ID is configured yet, or if the Formspree request fails.
@@ -104,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `Name: ${name}\nEmail: ${email}\nInterested in: ${interest}\n\nMessage:\n${message}`;
       window.location.href =
         `mailto:leaderstribe22@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      track('contact_form_mailto_fallback', { interest_category: interest });
       setTimeout(() => {
         alert("Thank you! Your email client should be open with your message ready to send.\nIf it didn't open, email us at leaderstribe22@gmail.com.");
       }, 300);
@@ -119,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!name || !email || !interest || !message) {
         alert('Please fill in all fields before sending your message.');
+        track('contact_form_validation_error');
         return;
       }
 
@@ -140,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           contactForm.reset();
+          track('contact_form_submit', { interest_category: interest });
           alert('Thank you! Your message has been sent. We will be in touch soon.');
         } else {
           throw new Error('Formspree submission failed');
@@ -152,5 +166,74 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ----------------------------------------------------------
+     8. SITE-WIDE EVENT TRACKING
+        Tracks the actions that matter for understanding what's
+        converting: Apply Now clicks, program interest, social
+        clicks, and "Read More" team bio clicks.
+     ---------------------------------------------------------- */
+
+  // "Apply Now" buttons (nav, mobile menu, hero, CTAs)
+  document.querySelectorAll('a[href*="contact.html"]').forEach(link => {
+    const label = link.textContent.trim();
+    if (/apply now/i.test(label)) {
+      link.addEventListener('click', () => {
+        track('apply_now_click', { link_location: label, page_path: window.location.pathname });
+      });
+    }
+  });
+
+  // Program-specific CTAs (Excel / Leadership / Train-the-Trainer)
+  document.querySelectorAll('a[href*="programs.html"]').forEach(link => {
+    const label = link.textContent.trim();
+    if (/excel|leadership|view all program/i.test(label)) {
+      link.addEventListener('click', () => {
+        track('program_interest_click', { program: label });
+      });
+    }
+  });
+
+  // Social media links (footer)
+  document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const platform = link.getAttribute('aria-label')?.replace('Leaders Tribe on ', '') || 'unknown';
+      track('social_link_click', { platform });
+    });
+  });
+
+  // "Read More" team bio links
+  document.querySelectorAll('a[href*="team/"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const card = link.closest('.team-card, .team-teaser-card');
+      const name = card?.querySelector('h3, h4')?.textContent.trim() || 'unknown';
+      track('team_bio_click', { team_member: name });
+    });
+  });
+
+  // Partner CTA
+  document.querySelectorAll('a[href*="partner"], a[href*="Partnership"]').forEach(link => {
+    const label = link.textContent.trim();
+    if (/partner/i.test(label)) {
+      link.addEventListener('click', () => {
+        track('partner_cta_click', { link_location: label });
+      });
+    }
+  });
+
+  // FAQ accordion opens (only fires once per question per session)
+  // Note: listens on a delay so it reads state AFTER faq.html's own
+  // toggle script (attached after this one) has run.
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    let tracked = false;
+    btn.addEventListener('click', () => {
+      setTimeout(() => {
+        if (!tracked && btn.closest('.faq-item')?.classList.contains('open')) {
+          track('faq_question_opened', { question: btn.textContent.trim().replace(/\s+/g, ' ') });
+          tracked = true;
+        }
+      }, 0);
+    });
+  });
 
 });
