@@ -174,20 +174,21 @@ document.addEventListener('DOMContentLoaded', () => {
         clicks, and "Read More" team bio clicks.
      ---------------------------------------------------------- */
 
-  // "Apply Now" buttons (nav, mobile menu, hero, CTAs)
-  document.querySelectorAll('a[href*="contact.html"]').forEach(link => {
-    const label = link.textContent.trim();
-    if (/apply now/i.test(label)) {
-      link.addEventListener('click', () => {
-        track('apply_now_click', { link_location: label, page_path: window.location.pathname });
-      });
-    }
+  // "Apply Now" / Kobo application form links
+  document.querySelectorAll('a[href*="kobotoolbox.org"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const label = link.textContent.trim();
+      const loc   = link.closest('section, header, nav, footer')?.id
+                    || link.closest('[class]')?.className.split(' ')[0]
+                    || 'unknown';
+      track('apply_now_click', { link_label: label, link_location: loc, page_path: window.location.pathname });
+    });
   });
 
-  // Program-specific CTAs (Excel / Leadership / Train-the-Trainer)
+  // Program page navigation links (non-Kobo program exploration)
   document.querySelectorAll('a[href*="programs.html"]').forEach(link => {
     const label = link.textContent.trim();
-    if (/excel|leadership|view all program/i.test(label)) {
+    if (/excel|leadership|view all program|train/i.test(label)) {
       link.addEventListener('click', () => {
         track('program_interest_click', { program: label });
       });
