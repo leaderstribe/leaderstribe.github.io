@@ -50,7 +50,7 @@ function injectNav(activeLabel) {
         </a>
         <ul class="nav-links" id="navLinks">
           ${links}
-          <li><a href="${base}contact.html" class="btn btn-primary btn-sm">Apply Now</a></li>
+          <li><a href="https://ee.kobotoolbox.org/single/it3MFJqQ" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Apply Now</a></li>
         </ul>
         <button class="hamburger" id="hamburger"
           aria-label="Toggle navigation menu"
@@ -61,7 +61,7 @@ function injectNav(activeLabel) {
       </div>
       <div class="mobile-menu" id="mobileMenu">
         ${mobileLinks}
-        <a href="${base}contact.html" class="btn btn-primary">Apply Now</a>
+        <a href="https://ee.kobotoolbox.org/single/it3MFJqQ" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply Now</a>
       </div>
     </nav>
   `;
@@ -100,7 +100,7 @@ function injectFooter() {
               <li><a href="${base}programs.html#excel">Excel for Data Analysis</a></li>
               <li><a href="${base}programs.html#leadership">Leadership Development</a></li>
               <li><a href="${base}programs.html#ttt">Train-the-Trainer</a></li>
-              <li><a href="${base}contact.html">Apply Now</a></li>
+              <li><a href="https://ee.kobotoolbox.org/single/it3MFJqQ" target="_blank" rel="noopener noreferrer">Apply Now</a></li>
             </ul>
           </div>
           <div class="footer-col">
