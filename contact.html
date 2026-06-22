@@ -81,32 +81,96 @@
       </div>
     </div>
 
-    <!-- Contact form -->
+    <!-- Application card + General enquiries -->
     <div class="reveal reveal-delay-1">
+
+      <!-- ── APPLY CARD ── -->
+      <div style="
+        background: var(--grad-brand);
+        border-radius: 14px;
+        padding: 2.2rem 2.5rem;
+        margin-bottom: 1.8rem;
+        position: relative;
+        overflow: hidden;
+      ">
+        <!-- decorative ring -->
+        <div style="
+          position:absolute; top:-40px; right:-40px;
+          width:200px; height:200px; border-radius:50%;
+          background: rgba(255,255,255,0.07);
+          pointer-events:none;
+        "></div>
+
+        <p style="
+          font-size:0.72rem; font-weight:700; letter-spacing:0.14em;
+          text-transform:uppercase; color:rgba(255,255,255,0.7);
+          margin-bottom:0.6rem;
+        ">Program Application</p>
+
+        <h3 style="
+          font-family:'Playfair Display',serif; font-size:1.5rem;
+          color:#fff; margin-bottom:0.75rem; line-height:1.2;
+        ">Ready to Apply?</h3>
+
+        <p style="
+          font-size:0.92rem; color:rgba(255,255,255,0.88);
+          line-height:1.78; margin-bottom:1.5rem;
+        ">
+          Applications for both the Excel for Data Analysis and Leadership
+          Development programs are handled through our online application form.
+          It takes about 5 minutes — no prior experience required.
+        </p>
+
+        <div style="
+          background:rgba(255,255,255,0.12);
+          border-radius:8px; padding:0.85rem 1.1rem;
+          margin-bottom:1.6rem;
+          display:flex; align-items:center; gap:0.6rem;
+        ">
+          <span data-icon="calendar" style="display:flex;width:18px;height:18px;color:rgba(255,255,255,0.8);flex-shrink:0;"></span>
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.88); margin:0; font-weight:500;">
+            Next cohort dates announced <strong style="color:#fff;">July 2026</strong> —
+            apply now to register your interest.
+          </p>
+        </div>
+
+        <a
+          href="https://ee.kobotoolbox.org/single/it3MFJqQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-white"
+          onclick="if(typeof gtag==='function') gtag('event','apply_now_click',{link_location:'contact_page_kobo_card'});"
+          style="font-size:0.95rem;"
+        >
+          Open Application Form
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round"
+            style="margin-left:0.3rem;">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.6); margin-top:0.8rem;">
+          Opens in a new tab &nbsp;·&nbsp; 100% free &nbsp;·&nbsp; Powered by KoboToolbox
+        </p>
+      </div>
+
+      <!-- ── GENERAL ENQUIRIES FORM ── -->
       <!--
-        FORM SUBMISSION SETUP — READ BEFORE LAUNCH
-        ─────────────────────────────────────────────
-        GitHub Pages cannot process forms server-side, so this form
-        submits via Formspree's AJAX endpoint (handled in script.js).
-
-        TO ACTIVATE:
-        1. Create a free account at https://formspree.io
-        2. Create a new form and copy its endpoint ID
-           (looks like: https://formspree.io/f/abc1wxyz)
-        3. Replace YOUR_FORM_ID below with that ID.
-        4. Formspree will verify your email on first submission —
-           check leaderstribe22@gmail.com and confirm the form.
-
-        Until step 3 is done, the data-formspree-id attribute is empty,
-        so script.js automatically falls back to the mailto: method
-        (opens the visitor's email client instead of submitting directly).
-
-        ALTERNATIVES (if you'd rather not use Formspree):
-        - Netlify Forms: move hosting to Netlify, add data-netlify="true"
-        - Google Forms: replace this block with an embedded <iframe>
+        For partnerships, volunteering, and general questions.
+        Currently uses a mailto: fallback. To upgrade to direct
+        inbox delivery, add a Formspree ID to data-formspree-id
+        (see https://formspree.io — free tier available).
       -->
       <div class="contact-form">
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#fff; margin-bottom:1.5rem;">Send Us a Message</h3>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:#fff; margin-bottom:0.4rem;">
+          Other Enquiries
+        </h3>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.65); margin-bottom:1.5rem;">
+          For partnerships, volunteering, and general questions — not program applications.
+        </p>
         <form id="contactForm" novalidate data-formspree-id="">
           <div class="form-row">
             <div class="form-group">
@@ -122,7 +186,6 @@
             <label for="interest">I am interested in</label>
             <select id="interest" name="interest" required>
               <option value="">Select an option</option>
-              <option value="Program Application">Program Application</option>
               <option value="Partnership">Partnership</option>
               <option value="Volunteering">Volunteering</option>
               <option value="General Inquiry">General Inquiry</option>
@@ -130,11 +193,12 @@
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us a little about yourself and how we can help..." required></textarea>
+            <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
         </form>
       </div>
+
     </div>
 
   </div>
