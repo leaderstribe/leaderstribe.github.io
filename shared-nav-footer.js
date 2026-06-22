@@ -1,5 +1,5 @@
 // ============================================================
-// LEADERS TRIBE — shared-nav-footer.js
+// LEADERS TRIBE, shared-nav-footer.js
 // Injects the navigation and footer into every page.
 // Call initPage(activeNavLabel) at the bottom of each page.
 // Pages inside /team/ automatically get '../' prefixed paths
@@ -44,7 +44,7 @@ function injectNav(activeLabel) {
   document.getElementById('nav-placeholder').innerHTML = `
     <nav id="navbar">
       <div class="nav-inner">
-        <a href="${base}index.html" class="nav-logo" aria-label="Leaders Tribe — Home">
+        <a href="${base}index.html" class="nav-logo" aria-label="Leaders Tribe Home">
           <img src="${base}assets/logo.png" alt="Leaders Tribe logo" />
           <span class="nav-logo-text">Leaders Tribe</span>
         </a>
