@@ -92,6 +92,7 @@ function injectFooter() {
               <li><a href="${base}impact.html">Impact</a></li>
               <li><a href="${base}faq.html">FAQ</a></li>
               <li><a href="${base}contact.html">Contact</a></li>
+              <li><a href="${base}verify.html">Verify a Certificate</a></li>
             </ul>
           </div>
           <div class="footer-col">
