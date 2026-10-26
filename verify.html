@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-06KXWJ6P75"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-06KXWJ6P75");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify a Certificate | Leaders Tribe</title>
+  <meta name="description" content="Confirm that a Leaders Tribe certificate of completion is genuine by entering the certificate ID printed on it." />
+  <meta property="og:title" content="Verify a Certificate | Leaders Tribe" />
+  <meta property="og:description" content="Confirm that a Leaders Tribe certificate of completion is genuine by entering the certificate ID printed on it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://leaderstribe.github.io/assets/og-image.png" />
+  <meta property="og:url" content="https://leaderstribe.github.io/verify.html" />
+  <link rel="canonical" href="https://leaderstribe.github.io/verify.html" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .verify-wrap { max-width: 680px; margin: 0 auto; }
+
+    .verify-card {
+      background: var(--white);
+      border: 1px solid rgba(107,45,139,0.14);
+      border-radius: 14px;
+      box-shadow: 0 18px 48px rgba(26,10,46,0.08);
+      overflow: hidden;
+    }
+    .verify-card::before {
+      content: ''; display: block; height: 5px; background: var(--grad-brand);
+    }
+    .verify-body { padding: 2.25rem 2.25rem 2rem; }
+
+    .verify-form label {
+      display: block; font-size: 0.83rem; font-weight: 600;
+      color: var(--text-dark); letter-spacing: 0.02em; margin-bottom: 0.55rem;
+    }
+    .verify-row { display: flex; gap: 0.75rem; }
+    .verify-row input {
+      flex: 1; min-width: 0;
+      padding: 0.88rem 1rem;
+      border: 1.5px solid rgba(107,45,139,0.28); border-radius: 6px;
+      background: var(--cream); color: var(--text-dark);
+      font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      outline: none; transition: border-color var(--ease), background var(--ease);
+    }
+    .verify-row input::placeholder { color: #9A8AAD; font-weight: 500; text-transform: none; letter-spacing: 0.02em; }
+    .verify-row input:focus { border-color: var(--violet); background: var(--white); }
+    .verify-row .btn { justify-content: center; }
+    .verify-row .btn[disabled] { opacity: 0.6; cursor: wait; transform: none; }
+    .verify-hint { font-size: 0.86rem; color: var(--text-soft); margin-top: 0.7rem; }
+    .verify-hint code {
+      font-family: 'Inter', sans-serif; font-weight: 600; color: var(--violet);
+      background: var(--lavender); padding: 0.1rem 0.4rem; border-radius: 4px; white-space: nowrap;
+    }
+
+    /* ── Result ── */
+    .verify-result { margin-top: 1.75rem; }
+    .verify-result:empty { display: none; }
+    .result-box { border-radius: 10px; padding: 1.4rem 1.5rem; border: 1px solid transparent; }
+    .result-head { display: flex; align-items: center; gap: 0.8rem; }
+    .result-icon {
+      flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; color: #fff;
+    }
+    .result-icon svg { width: 20px; height: 20px; }
+    .result-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; font-weight: 700; line-height: 1.2; }
+    .result-text  { margin-top: 0.6rem; font-size: 0.95rem; color: var(--text-body); }
+    .result-text a { color: var(--violet); font-weight: 600; text-decoration: underline; }
+
+    .result-valid    { background: #EEF7F1; border-color: #BFE0CB; }
+    .result-valid    .result-icon  { background: #17784A; }
+    .result-valid    .result-title { color: #12603B; }
+    .result-revoked  { background: #FCEBF3; border-color: #F2C2D8; }
+    .result-revoked  .result-icon  { background: var(--magenta); }
+    .result-revoked  .result-title { color: #9E1055; }
+    .result-missing  { background: #FFF5EA; border-color: #F9D8B3; }
+    .result-missing  .result-icon  { background: var(--orange); }
+    .result-missing  .result-title { color: #9A4A0C; }
+    .result-loading  { background: var(--lavender); color: var(--text-soft); font-size: 0.95rem; display: flex; align-items: center; gap: 0.75rem; }
+
+    .spinner {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2.5px solid rgba(107,45,139,0.25); border-top-color: var(--violet);
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .cert-details {
+      margin-top: 1.2rem; background: var(--white);
+      border-radius: 8px; border: 1px solid rgba(26,10,46,0.08);
+      display: grid; grid-template-columns: max-content 1fr;
+    }
+    .cert-details dt, .cert-details dd { padding: 0.7rem 1rem; border-top: 1px solid rgba(26,10,46,0.07); display: flex; align-items: center; }
+    .cert-details dt:first-of-type, .cert-details dd:first-of-type { border-top: none; }
+    .cert-details dt { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .cert-details dd { font-size: 0.97rem; font-weight: 600; color: var(--text-dark); overflow-wrap: anywhere; }
+    .cert-details dd.cert-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; }
+
+    /* ── ID explainer ── */
+    .id-explainer { margin-top: 2.5rem; text-align: center; }
+    .id-explainer h2 { font-size: 1.35rem; margin-bottom: 1rem; }
+    .id-parts { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+    .id-part {
+      background: var(--white); border: 1px solid rgba(107,45,139,0.16); border-radius: 8px;
+      padding: 0.6rem 0.85rem; min-width: 92px;
+    }
+    .id-part b { display: block; font-size: 1rem; color: var(--violet); letter-spacing: 0.04em; }
+    .id-part span { display: block; font-size: 0.76rem; color: var(--text-soft); margin-top: 0.15rem; }
+    .id-note { font-size: 0.9rem; color: var(--text-soft); margin-top: 1.5rem; }
+    .id-note a { color: var(--violet); font-weight: 600; text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .verify-body { padding: 1.6rem 1.25rem 1.5rem; }
+      .verify-row { flex-direction: column; }
+      .verify-row .btn { width: 100%; }
+      .cert-details { grid-template-columns: 1fr; }
+      .cert-details dt { padding-bottom: 0; border-top: 1px solid rgba(26,10,46,0.07); }
+      .cert-details dd { padding-top: 0.2rem; border-top: none; }
+      .cert-details dt:first-of-type { border-top: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="tag" style="color:var(--gold);">Certificate Verification</span>
+    <h1>Verify a Certificate</h1>
+    <p>Enter the certificate ID printed on a Leaders Tribe certificate of completion to confirm that it is genuine.</p>
+  </div>
+</div>
+
+<section class="bg-cream" aria-labelledby="verify-title">
+  <div class="section-inner">
+    <div class="verify-wrap">
+      <h2 id="verify-title" class="visually-hidden">Check a certificate ID</h2>
+
+      <div class="verify-card">
+        <div class="verify-body">
+          <form class="verify-form" id="verifyForm" novalidate>
+            <label for="certId">Certificate ID</label>
+            <div class="verify-row">
+              <input type="text" id="certId" name="id"
+                placeholder="e.g. LT-EDA-L12-2026-001-K7QX"
+                autocomplete="off" autocapitalize="characters" spellcheck="false"
+                maxlength="40" required />
+              <button type="submit" class="btn btn-primary" id="verifyBtn">
+                <span data-icon="check" style="display:flex;width:18px;height:18px;"></span>
+                Verify
+              </button>
+            </div>
+            <p class="verify-hint">You'll find the ID at the top right of the certificate, for example <code>LT-EDA-L1-2026-001-K7QX</code>. Scanning the QR code on the certificate runs this check for you.</p>
+          </form>
+
+          <div class="verify-result" id="verifyResult" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="id-explainer">
+        <h2>Reading a certificate ID</h2>
+        <div class="id-parts">
+          <div class="id-part"><b>LT</b><span>Leaders Tribe</span></div>
+          <div class="id-part"><b>EDA</b><span>Program</span></div>
+          <div class="id-part"><b>L12</b><span>Level(s) completed</span></div>
+          <div class="id-part"><b>2026</b><span>Year issued</span></div>
+          <div class="id-part"><b>001</b><span>Certificate number</span></div>
+          <div class="id-part"><b>K7QX</b><span>Security code</span></div>
+        </div>
+        <p class="id-note">Questions about a certificate? Email <a href="mailto:leaderstribe22@gmail.com">leaderstribe22@gmail.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="icons.js"></script>
+<script src="shared-nav-footer.js"></script>
+<script src="script.js"></script>
+<script>
+  initPage('');
+
+  /* ------------------------------------------------------------
+     CERTIFICATE VERIFICATION
+     Paste the Google Apps Script web app URL (ends in /exec)
+     between the quotes below. See SETUP-GUIDE.md.
+     ------------------------------------------------------------ */
+  const APPS_SCRIPT_URL = 'PASTE_YOUR_WEB_APP_URL_HERE';
+
+  (function () {
+    const form   = document.getElementById('verifyForm');
+    const input  = document.getElementById('certId');
+    const button = document.getElementById('verifyBtn');
+    const out    = document.getElementById('verifyResult');
+    const CONTACT = 'leaderstribe22@gmail.com';
+
+    const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    const ICON_X     = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    const ICON_Q     = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="7" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+
+    const track = (name, params) => { if (typeof gtag === 'function') gtag('event', name, params || {}); };
+
+    const normalise = (v) => String(v || '')
+      .trim().toUpperCase()
+      .replace(/[\s_‐-―]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    const el = (tag, cls, text) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    };
+
+    const box = (kind, icon, title, bodyNodes) => {
+      const b = el('div', 'result-box result-' + kind);
+      const head = el('div', 'result-head');
+      const ic = el('div', 'result-icon'); ic.innerHTML = icon; ic.setAttribute('aria-hidden', 'true');
+      head.append(ic, el('div', 'result-title', title));
+      b.append(head, ...bodyNodes);
+      out.replaceChildren(b);
+    };
+
+    const contactLine = (prefix) => {
+      const p = el('p', 'result-text', prefix + ' ');
+      const a = el('a', null, CONTACT); a.href = 'mailto:' + CONTACT;
+      p.append(a, '.');
+      return p;
+    };
+
+    const showLoading = () => {
+      const b = el('div', 'result-box result-loading');
+      b.append(el('div', 'spinner'), el('span', null, 'Checking our certificate register…'));
+      out.replaceChildren(b);
+    };
+
+    const showValid = (d) => {
+      const dl = el('dl', 'cert-details');
+      [['Awarded to', d.name, 'cert-name'], ['Program', d.program], ['Completed', d.level],
+       ['Issued', d.issued], ['Certificate ID', d.certId]].forEach(([k, v, cls]) => {
+        if (!v) return;
+        dl.append(el('dt', null, k), el('dd', cls || null, v));
+      });
+      box('valid', ICON_CHECK, 'Certificate verified', [
+        el('p', 'result-text', 'This certificate was issued by Leaders Tribe and matches our official register.'),
+        dl
+      ]);
+    };
+
+    const showRevoked = (d) => box('revoked', ICON_X, 'Certificate revoked', [
+      el('p', 'result-text', 'Certificate ' + (d.certId || '') + ' was issued by Leaders Tribe but is no longer valid.'),
+      contactLine('For details, email')
+    ]);
+
+    const showMissing = (id) => box('missing', ICON_Q, 'No matching certificate', [
+      el('p', 'result-text', 'We could not find a certificate with the ID ' + id + '. Check that it was typed exactly as printed, including the dashes.'),
+      contactLine('If it still does not match, email')
+    ]);
+
+    const showProblem = (msg) => box('missing', ICON_Q, 'We couldn’t check right now', [
+      el('p', 'result-text', msg),
+      contactLine('You can also verify a certificate by emailing')
+    ]);
+
+    async function verify(raw) {
+      const id = normalise(raw);
+      input.value = id;
+      if (!/^[A-Z0-9-]{6,40}$/.test(id)) {
+        box('missing', ICON_Q, 'Please check the ID', [
+          el('p', 'result-text', 'Enter the certificate ID exactly as printed, for example LT-EDA-L1-2026-001-K7QX.')
+        ]);
+        input.focus();
+        return;
+      }
+
+      try { history.replaceState(null, '', '?id=' + encodeURIComponent(id)); } catch (e) {}
+
+      if (!/^https:\/\/script\.google(usercontent)?\.com\//.test(APPS_SCRIPT_URL)) {
+        showProblem('Online verification is being set up.');
+        return;
+      }
+
+      button.disabled = true;
+      showLoading();
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 20000);
+      try {
+        const res = await fetch(APPS_SCRIPT_URL + '?id=' + encodeURIComponent(id), { signal: ctrl.signal });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        if (data.status === 'valid')        showValid(data);
+        else if (data.status === 'revoked') showRevoked(data);
+        else if (data.status === 'not_found' || data.status === 'invalid') showMissing(id);
+        else throw new Error(data.message || 'Unexpected response');
+        track('certificate_verify', { result: data.status });
+      } catch (err) {
+        showProblem('The verification service did not respond. Please try again in a moment.');
+        track('certificate_verify', { result: 'error' });
+      } finally {
+        clearTimeout(timer);
+        button.disabled = false;
+      }
+    }
+
+    form.addEventListener('submit', (e) => { e.preventDefault(); verify(input.value); });
+
+    // Support links like verify.html?id=LT-EDA-L1-2026-001-K7QX (used by the QR codes) or verify.html#LT-...
+    const params = new URLSearchParams(location.search);
+    const initial = params.get('id') || decodeURIComponent(location.hash.replace(/^#/, ''));
+    if (initial) verify(initial);
+  })();
+</script>
+</body>
+</html>
