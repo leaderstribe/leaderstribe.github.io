@@ -185,6 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // "Register Your Interest" Google Form links
+  document.querySelectorAll('a[href*="forms.gle"]').forEach(link => {
+    link.addEventListener('click', () => {
+      track('register_interest_click', { link_label: link.textContent.trim(), page_path: window.location.pathname });
+    });
+  });
+
   // Program page navigation links (non-Kobo program exploration)
   document.querySelectorAll('a[href*="programs.html"]').forEach(link => {
     const label = link.textContent.trim();
