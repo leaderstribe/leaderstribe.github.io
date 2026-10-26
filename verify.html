@@ -104,18 +104,8 @@
     .cert-details dd { font-size: 0.97rem; font-weight: 600; color: var(--text-dark); overflow-wrap: anywhere; }
     .cert-details dd.cert-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; }
 
-    /* ── ID explainer ── */
-    .id-explainer { margin-top: 2.5rem; text-align: center; }
-    .id-explainer h2 { font-size: 1.35rem; margin-bottom: 1rem; }
-    .id-parts { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-    .id-part {
-      background: var(--white); border: 1px solid rgba(107,45,139,0.16); border-radius: 8px;
-      padding: 0.6rem 0.85rem; min-width: 92px;
-    }
-    .id-part b { display: block; font-size: 1rem; color: var(--violet); letter-spacing: 0.04em; }
-    .id-part span { display: block; font-size: 0.76rem; color: var(--text-soft); margin-top: 0.15rem; }
-    .id-note { font-size: 0.9rem; color: var(--text-soft); margin-top: 1.5rem; }
-    .id-note a { color: var(--violet); font-weight: 600; text-decoration: underline; }
+    .verify-contact { text-align: center; font-size: 0.9rem; color: var(--text-soft); margin-top: 1.75rem; }
+    .verify-contact a { color: var(--violet); font-weight: 600; text-decoration: underline; }
 
     @media (max-width: 600px) {
       .verify-body { padding: 1.6rem 1.25rem 1.5rem; }
@@ -166,18 +156,7 @@
         </div>
       </div>
 
-      <div class="id-explainer">
-        <h2>Reading a certificate ID</h2>
-        <div class="id-parts">
-          <div class="id-part"><b>LT</b><span>Leaders Tribe</span></div>
-          <div class="id-part"><b>EDA</b><span>Program</span></div>
-          <div class="id-part"><b>L12</b><span>Level(s) completed</span></div>
-          <div class="id-part"><b>2026</b><span>Year issued</span></div>
-          <div class="id-part"><b>001</b><span>Certificate number</span></div>
-          <div class="id-part"><b>K7QX</b><span>Security code</span></div>
-        </div>
-        <p class="id-note">Questions about a certificate? Email <a href="mailto:leaderstribe22@gmail.com">leaderstribe22@gmail.com</a>.</p>
-      </div>
+      <p class="verify-contact">Questions about a certificate? Email <a href="mailto:leaderstribe22@gmail.com">leaderstribe22@gmail.com</a>.</p>
     </div>
   </div>
 </section>
@@ -185,7 +164,7 @@
 <div id="footer-placeholder"></div>
 
 <script src="icons.js"></script>
-<script src="shared-nav-footer.js"></script>
+<script src="shared-nav-footer.js?v=2"></script>
 <script src="script.js"></script>
 <script>
   initPage('');
